@@ -1,0 +1,21 @@
+{
+  "name": "unsplash",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.25",
+    "pinia": "^2.0.14",
+    "vue-router": "^4.0.13",
+    "wave-ui": "^2.35.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9",
+    "eslint": "^8.5.0"
+  }
+}
