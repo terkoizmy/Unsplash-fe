@@ -1,22 +1,45 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import Swal from "sweetalert2"
 import { storeToRefs } from 'pinia'
 import { userStore } from '../store/user.js'
 
 
-const store = userStore()
-const isPassword = ref(true)
-const username = ref("")
-const password = ref("")
+let store = userStore()
+
+let isPassword = ref(true)
+let showRegister = ref(false)
+let regName = ref("")
+let regPass = ref("")
+let username = ref("")
+let password = ref("")
 
 
 
-const login = () => {
-  
-  store.username = username.value
-  store.password = password.value
-  store.login()
-  console.log("LOGIN BERHASIL")
+const register = async () => {
+  Swal.showLoading()
+  let respon = await store.register(regName.value, regPass.value)
+  showRegister = ref(false)
+  if(respon){
+    Swal.close();
+    Swal.fire(
+    'Good job!',
+    'Register Success',
+    'success'
+  )
+  }else{
+    Swal.fire(
+        'Fail !',
+        'Register Failed',
+        'error'
+      )
+  }
+}
+
+const login = async () => {
+  Swal.showLoading()
+  await store.login(username.value, password.value)
+  Swal.close();
 }
 </script>
 
@@ -44,9 +67,42 @@ const login = () => {
     </w-input>
 
     <w-button class="ma1" bg-color="success" shadow @click="login">Login</w-button>
-    <w-button class="ma1" color="primary" text md>register</w-button>
+    <w-button class="ma1" color="primary" text md @click="showRegister = true">register</w-button>
     </w-card>
+
+    <w-dialog
+      width=50.0em
+      v-model="showRegister"
+      title="Register User">
+      
+      <w-input
+        class="mb1"
+        label="username"
+        v-model="regName"
+        round
+        shadow>
+      </w-input>
+
+      <w-input
+        class="mb1"
+        label="password"
+        v-model="regPass"
+        round
+        shadow>
+      </w-input> 
+
+      <w-button class="ma1" bg-color="success" 
+      @click="register(); showUpload=false; 
+      $waveui.notify('Success!', 'success', 3000)">
+        <w-icon class="mr1"  >wi-check</w-icon>
+        Register
+      </w-button>
+
+    </w-dialog>
+
   </div>
+
+  
 
 
 </template>
@@ -61,11 +117,12 @@ const login = () => {
   margin-top: 60px;
 }
 .conlogin {
+  padding: 300px;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
 .login {
