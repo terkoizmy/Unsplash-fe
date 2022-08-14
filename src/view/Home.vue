@@ -156,11 +156,10 @@ onBeforeUpdate(()=> {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .header {
-  padding: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -174,19 +173,8 @@ onBeforeUpdate(()=> {
   flex-direction: row;
 }
 
-.img-bd {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  position: absolute;
-  width: 80%;
-  display: 'grid';
-  grid-template-columns: repeat(auto-fill);
-  grid-auto-rows: 10px;
-}
-
 .body {
-  max-height: 100;
+  max-height: 100px;
   display: flex;
   justify-content: center;
 }
@@ -215,10 +203,11 @@ onBeforeUpdate(()=> {
 .box {
   background-color: #e2ecfc;
   display: grid;
+  height: auto;
   grid: auto-flow 200px;
   grid-template-columns: repeat(auto-fill, 339px);
   grid-auto-flow: column;
-  grid-auto-columns: 200px;
+  grid-auto-columns: auto;
   grid-auto-rows: auto;
 }
 

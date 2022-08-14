@@ -54,6 +54,7 @@ const props = defineProps({
   width: 100%;
   object-fit: cover;
   border-radius: 7%;
+
 }
 
 .cardsmall {

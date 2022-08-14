@@ -114,12 +114,9 @@ const login = async () => {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 .conlogin {
-  padding: 300px;
-  width: 100%;
-  height: 100%;
+  padding: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
