@@ -48,7 +48,7 @@ export const userStore = defineStore('user', {
 
                 const response = await axios({
                     method: 'POST',
-                    url: 'http://unsplash-zx.herokuapp.com/user/login',
+                    url: 'https://unsplash-zx.herokuapp.com/user/login',
                     data: data,
                 })
                 this.username = username.charAt(0).toUpperCase() + username.slice(1);
@@ -66,7 +66,7 @@ export const userStore = defineStore('user', {
                 }
                 const response = await axios({
                     method: 'GET',
-                    url: 'http://unsplash-zx.herokuapp.com/user/user-img',
+                    url: 'https://unsplash-zx.herokuapp.com/user/user-img',
                     data: {},
                     headers: headers
                 })
@@ -89,7 +89,7 @@ export const userStore = defineStore('user', {
                 }
                 const response = await axios({
                     method: 'POST',
-                    url: 'http://unsplash-zx.herokuapp.com/user/post-img',
+                    url: 'https://unsplash-zx.herokuapp.com/user/post-img',
                     data: data,
                     headers: headers
                 })
@@ -112,7 +112,7 @@ export const userStore = defineStore('user', {
                 }
                 const response = await axios({
                     method: 'DELETE',
-                    url: 'http://unsplash-zx.herokuapp.com/user/dlt-img',
+                    url: 'https://unsplash-zx.herokuapp.com/user/dlt-img',
                     data: data,
                     headers: headers
                 })
@@ -134,7 +134,7 @@ export const userStore = defineStore('user', {
 
                 const response = await axios({
                     method: 'POST',
-                    url: 'http://unsplash-zx.herokuapp.com/user/register',
+                    url: 'https://unsplash-zx.herokuapp.com/user/register',
                     data: data,
                 })
 
