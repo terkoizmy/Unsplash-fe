@@ -40,7 +40,7 @@ export const userStore = defineStore('user', {
         async login (username, password){
 
             try{
-
+                
                 let data = {
                     username: username,
                     password: password
@@ -54,6 +54,7 @@ export const userStore = defineStore('user', {
                 this.username = username.charAt(0).toUpperCase() + username.slice(1);
                 this.token = String(response.data.data.token)
                 this.router.push("/")
+                console.log(this.token)
             }catch(error){
                 console.log(error.response.data.message)
             }
